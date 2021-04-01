@@ -1,0 +1,51 @@
+@model IList<Project.Models.Database.StudentExam>
+@using Project.Models.Database;
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+ 
+  
+             
+<table class="table">
+       <thead>
+          <td>Student</td>
+          <td>Subject</td>
+          <td>Grade</td>
+          <td>Date</td>
+      </thead> <tbody>     
+  @foreach (StudentExam item in Model) {
+<tr>
+    <td>
+     @item.student.fullName
+  </td>   
+  <td>
+      @item.exam.subjName
+  </td>
+  <td>
+      @item.mark
+  </td>
+  <td>
+      @item.exam.date
+  </td>
+   </tr>
+   
+} </tbody>
+</table>
+   <a asp-action="Index">Choose another professor</a>
+
+
+
+
+
+
+
+
+
+
+ 
+</div>
+  

@@ -1,0 +1,41 @@
+@model Project.Models.Database.Subject
+@using Project.Models.Database;
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Subject Details</h1>
+
+<div>
+  
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+          <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.activity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.activity)
+        </dd>
+          <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.professorSubjectList)
+        </dt>
+        <dd class = "col-sm-10">
+           
+            <ul> @foreach(ProfessorSubject item in Model.professorSubjectList){
+             
+                <li>@item.professor.firstName @item.professor.lastName</li>
+            }
+            </ul>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idSub">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

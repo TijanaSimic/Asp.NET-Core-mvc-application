@@ -1,0 +1,39 @@
+@model IEnumerable<Project.Models.Database.StudentExam>
+
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<h1>Grade students</h1>
+
+<p>
+    <a asp-action="Create">Register for an exam</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>Exam</th>
+             <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.student.fullName)
+            </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.exam.nameDate)
+            </td>
+            <td>
+                @Html.ActionLink("Grade Student", "Edit", new { idStud = item.idStud ,idExam=item.idExam })  
+      
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

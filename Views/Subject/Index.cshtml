@@ -1,0 +1,42 @@
+@model IEnumerable<Project.Models.Database.Subject>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All subjects</h1>
+<i>ACTIVE - You can register for exam </i>
+<br>
+<i>INACTIVE - You can no longer register for  exam</i>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.activity)</th>
+            <th>About</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.activity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idSub">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.idSub">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.idSub">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

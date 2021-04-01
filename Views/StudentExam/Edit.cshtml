@@ -1,0 +1,32 @@
+@model Project.Models.Database.StudentExam
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Mark</h1>
+
+ 
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="idStud" />
+            <input type="hidden" asp-for="idExam" />
+            <div class="form-group">
+                <label asp-for="mark" class="control-label"></label>
+                 <select asp-for="mark" asp-items="ViewBag.grades" class="form-control"></select>
+                <span asp-validation-for="mark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
